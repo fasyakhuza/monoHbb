@@ -88,20 +88,20 @@ def dataPredRatio(data_, totalBkg_):
     dataPredRatio_.Divide(totalBkg_)
     return dataPredRatio_
 
-def myStack(fname, region, isSR, prefitbackgroundlist_, legendname_, colorlist_, regionName_, dirName, isMerged):
+def myStack(fname_, region_, isSR, prefitbackgroundlist_, legendname_, colorlist_, regionName_, dirName_, isMerged, pad1ymax_):
     
     nbins = 4
     edges = arr.array('f')
     
-    openfile = TFile(fname)
+    openfile = TFile(fname_)
     
     print " "
     print "*************************"
-    print region, "for", dirName
+    print region_, "for", dirName_
     print " "
     
-    prefit_path = "shapes_prefit/"+region+"/"
-    postfit_path = "shapes_fit_b/"+region+"/"
+    prefit_path = "shapes_prefit/"+region_+"/"
+    postfit_path = "shapes_fit_b/"+region_+"/"
     
     
     #get the histograms from prefit directory
@@ -167,7 +167,7 @@ def myStack(fname, region, isSR, prefitbackgroundlist_, legendname_, colorlist_,
     data_.GetYaxis().SetTitleOffset(1.2)
     data_.GetYaxis().SetTitleSize(0.05)
     data_.GetYaxis().SetNdivisions(510)
-    data_.SetMaximum(100)
+    data_.SetMaximum(pad1ymax_)
     data_.GetYaxis().SetTitle("Events/GeV")
     data_.Draw("e1")
     
@@ -247,17 +247,17 @@ def myStack(fname, region, isSR, prefitbackgroundlist_, legendname_, colorlist_,
 
     leg1.Draw()
 
-    if not os.path.exists(dirName):
-        os.mkdir(dirName)
+    if not os.path.exists(dirName_):
+        os.mkdir(dirName_)
 
     pad[0].Modified()
     pad[0].Update()
     if isMerged:
-        pad[0].SaveAs(dirName+region+"_merged_2017.pdf")
-        pad[0].SaveAs(dirName+region+"_merged_2017.png")
+        pad[0].SaveAs(dirName_+region_+"_merged_2017.pdf")
+        pad[0].SaveAs(dirName_+region_+"_merged_2017.png")
     if not isMerged:
-        pad[0].SaveAs(dirName+region+"_resolved_2017.pdf")
-        pad[0].SaveAs(dirName+region+"_resolved_2017.png")
+        pad[0].SaveAs(dirName_+region_+"_resolved_2017.pdf")
+        pad[0].SaveAs(dirName_+region_+"_resolved_2017.png")
 
 
 #--------------------------------------------------------------------------------#
@@ -289,6 +289,6 @@ for i in range(len(regionlist)):
         legendlist = ["WW/WZ/ZZ", "Single t", "SM H", "t#bar{t}", "DY+Jets"]
         color = [601, 802, 631, 799, 417]
 
-    makeStackMerged = myStack(fname = "fitDiagnostics_merged_2017_data.root", region = regionlist[i], isSR = isSR, prefitbackgroundlist_ = prefitbkglist, legendname_ = legendlist, colorlist_ = color, regionName_ = regionName[i], dirName='Stack_Plots/2017_merged/', isMerged = True)
+    makeStackMerged = myStack(fname_ = "fitDiagnostics_merged_2017_data.root", region_ = regionlist[i], isSR = isSR, prefitbackgroundlist_ = prefitbkglist, legendname_ = legendlist, colorlist_ = color, regionName_ = regionName[i], dirName_='Stack_Plots/2017_merged/', isMerged = True, pad1ymax_ = 100)
 
-    makeStackResolved = myStack(fname = "fitDiagnostics_resolved_2017_data.root", region = regionlist[i], isSR = isSR, prefitbackgroundlist_ = prefitbkglist, legendname_ = legendlist, colorlist_ = color, regionName_ = regionName[i], dirName='Stack_Plots/2017_resolved/', isMerged = False)
+    makeStackResolved = myStack(fname_ = "fitDiagnostics_resolved_2017_data.root", region_ = regionlist[i], isSR = isSR, prefitbackgroundlist_ = prefitbkglist, legendname_ = legendlist, colorlist_ = color, regionName_ = regionName[i], dirName_='Stack_Plots/2017_resolved/', isMerged = False, pad1ymax_ = 1000)
