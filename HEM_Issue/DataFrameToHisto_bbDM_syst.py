@@ -369,7 +369,7 @@ def runFile(filename,trees):
         if nent > 0:
             df = read_root(filename,tree)
             df = df[df.Jet1Pt > 50.0]
-	    df = df[~(((df['Jet1Phi'] > -1.57) & (df['Jet1Phi'] < -0.87)) & ((df['Jet1Eta'] > -3.0) & (df['Jet1Eta'] < -1.3)))]
+	    #df = df[~(((df['Jet1Phi'] > -1.57) & (df['Jet1Phi'] < -0.87)) & ((df['Jet1Eta'] > -3.0) & (df['Jet1Eta'] < -1.3)))]
 	    #df = df[((df['Jet1Eta'] < -3.0) & (df['Jet1Eta'] > -1.3))]
             #df = df[df.nJets <=2 ]
             HistWrtter(df, outfilename,tree,mode)
