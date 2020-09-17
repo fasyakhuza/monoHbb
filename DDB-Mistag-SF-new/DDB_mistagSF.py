@@ -424,9 +424,9 @@ def withSingleTopAndInclusive(x, year_, isTope):
     h_sumWJetsFinal = h_sumWJets.Clone("h_sumWJetsFinal")
     h_sumSTFinal = h_sumST.Clone("h_sumSTFinal")
     
-    h_sumWJetsFinal = h_sumWJetsFinal + h_sumDiboson
-    h_sumSTFinal = h_sumWJetsFinal + h_sumSTFinal
-    h_unmatchFinal = h_unmatchFinal + h_sumSTFinal
+    h_sumSTFinal = h_sumSTFinal + h_sumDiboson
+    h_sumWJetsFinal = h_sumWJetsFinal + h_sumSTFinal
+    h_unmatchFinal = h_unmatchFinal + h_sumWJetsFinal
     h_WmatchFinal = h_WmatchFinal + h_unmatchFinal
     h_TopMatchFinal = h_TopMatchFinal + h_WmatchFinal
     
@@ -2018,9 +2018,9 @@ def withSingleTopAndMETbins(lowerMET, upperMET, year_, isTope):
     h_sumWJetsFinal = h_sumWJets.Clone("h_sumWJetsFinal")
     h_sumSTFinal = h_sumST.Clone("h_sumSTFinal")
 
-    h_sumWJetsFinal = h_sumWJetsFinal + h_sumDiboson
-    h_sumSTFinal = h_sumWJetsFinal + h_sumSTFinal
-    h_unmatchFinal = h_unmatchFinal + h_sumSTFinal
+    h_sumSTFinal = h_sumSTFinal + h_sumDiboson
+    h_sumWJetsFinal = h_sumWJetsFinal + h_sumSTFinal
+    h_unmatchFinal = h_unmatchFinal + h_sumWJetsFinal
     h_WmatchFinal = h_WmatchFinal + h_unmatchFinal
     h_TopMatchFinal = h_TopMatchFinal + h_WmatchFinal
 
@@ -3601,9 +3601,9 @@ def withSingleTopAndpTbins(lowerpT, upperpT, year_, isTope):
     h_sumWJetsFinal = h_sumWJets.Clone("h_sumWJetsFinal")
     h_sumSTFinal = h_sumST.Clone("h_sumSTFinal")
     
-    h_sumWJetsFinal = h_sumWJetsFinal + h_sumDiboson
-    h_sumSTFinal = h_sumWJetsFinal + h_sumSTFinal
-    h_unmatchFinal = h_unmatchFinal + h_sumSTFinal
+    h_sumSTFinal = h_sumSTFinal + h_sumDiboson
+    h_sumWJetsFinal = h_sumWJetsFinal + h_sumSTFinal
+    h_unmatchFinal = h_unmatchFinal + h_sumWJetsFinal
     h_WmatchFinal = h_WmatchFinal + h_unmatchFinal
     h_TopMatchFinal = h_TopMatchFinal + h_WmatchFinal
     
