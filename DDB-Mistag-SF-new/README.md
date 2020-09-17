@@ -34,10 +34,10 @@ There are 3 arguments you have to use for running this python script.
 ```
 --WOI Inclusive [without single top for inclusive analysis]
 --WI Inclusive [with single top for inclusive analysis]
---WOPT range [you can change the "range" to be 200-350, 350-500, and 350-2000. This is if you want analyze WITHOUT single top]
---WPT range [you can change the "range" to be 200-350, 350-500, and 350-2000. This is if you want analyze WITH single top]
---WOMET range [you can change the "range" to be 200-270, 270-345, and 345-1000. This is if you want analyze WITHOUT single top]
---WMET range [you can change the "range" to be 200-270, 270-345, and 345-1000. This is if you want analyze WITH single top]
+--WOPT range [This is if you want analyze WITHOUT single top. You can change the "range" to be 200-350, 350-500, and 350-2000.]
+--WPT range [This is if you want analyze WITH single top. You can change the "range" to be 200-350, 350-500, and 350-2000.]
+--WOMET range [This is if you want analyze WITHOUT single top. You can change the "range" to be 200-270, 270-345, and 345-1000.]
+--WMET range [This is if you want analyze WITH single top. You can change the "range" to be 200-270, 270-345, and 345-1000.]
 ```
 
 ### For example:
@@ -50,6 +50,7 @@ or for 2018 data, Top (muon) CR, and with single top, you can run using
 ```
 python DDB_mistagSF.py --Y 2018 --isTope False --WI Inclusive
 ```
+
 
 2. For PT bin analysis, Top (e) CR, and without single top process
 ```
