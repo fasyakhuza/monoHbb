@@ -68,7 +68,7 @@ python DDB_mistagSF.py --Y 2017 --isTope True --WOMET 200-270
 ```
 or for 2018 data, Top (e) CR, and with single top, you can run using
 ```
-python DDB_mistagSF.py --Y 2018 --isTope True --WPT 345-1000
+python DDB_mistagSF.py --Y 2018 --isTope True --WMET 345-1000
 ```
 
 
