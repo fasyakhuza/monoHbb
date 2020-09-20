@@ -861,6 +861,12 @@ def withSingleTopAndInclusive(x, year_, isTope):
     h_Data_Passed.Write()
     h_sumWJetsPassed.Write()
     h_sumDibosonPassed.Write()
+    h_sumSTPassed.Write()
+    
+    h_Data_Failed.Write()
+    h_sumWJetsFailed.Write()
+    h_sumDibosonFailed.Write()
+    h_sumSTFailed.Write()
 
     outfile.Close()
     if isTope == "True":
@@ -1625,6 +1631,10 @@ def withoutSingleTopAndInclusive(x, year_, isTope):
     h_Data_Passed.Write()
     h_sumWJetsPassed.Write()
     h_sumDibosonPassed.Write()
+    
+    h_Data_Failed.Write()
+    h_sumWJetsFailed.Write()
+    h_sumDibosonFailed.Write()
     
     outfile.Close()
     if isTope == "True":
@@ -2450,6 +2460,12 @@ def withSingleTopAndMETbins(lowerMET, upperMET, year_, isTope):
     h_Data_Passed.Write()
     h_sumWJetsPassed.Write()
     h_sumDibosonPassed.Write()
+    h_sumSTPassed.Write()
+    
+    h_Data_Failed.Write()
+    h_sumWJetsFailed.Write()
+    h_sumDibosonFailed.Write()
+    h_sumSTFailed.Write()
     
     outfile.Close()
     if isTope == "True":
@@ -3209,6 +3225,11 @@ def withoutSingleTopAndMETbins(lowerMET, upperMET, year_, isTope):
     h_Data_Passed.Write()
     h_sumWJetsPassed.Write()
     h_sumDibosonPassed.Write()
+    
+    h_Data_Failed.Write()
+    h_sumWJetsFailed.Write()
+    h_sumDibosonFailed.Write()
+
     
     outfile.Close()
     if isTope == "True":
@@ -4033,6 +4054,12 @@ def withSingleTopAndpTbins(lowerpT, upperpT, year_, isTope):
     h_Data_Passed.Write()
     h_sumWJetsPassed.Write()
     h_sumDibosonPassed.Write()
+    h_sumSTPassed.Write()
+    
+    h_Data_Failed.Write()
+    h_sumWJetsFailed.Write()
+    h_sumDibosonFailed.Write()
+    h_sumSTFailed.Write()
     
     outfile.Close()
     if isTope == "True":
@@ -4794,6 +4821,10 @@ def withoutSingleTopAndpTbins(lowerpT, upperpT, year_, isTope):
     h_sumWJetsPassed.Write()
     h_sumDibosonPassed.Write()
     
+    h_Data_Failed.Write()
+    h_sumWJetsFailed.Write()
+    h_sumDibosonFailed.Write()
+    
     outfile.Close()
     if isTope == "True":
         print "Finish generating TopE.root"
@@ -4859,14 +4890,14 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Calculate and draw plots of DDB mistag scale factor')
     
     #add command
-    parser.add_argument('--WOI', help='Analyze inclusive without single top')
-    parser.add_argument('--WI', help='Analyze inclusive with single top')
-    parser.add_argument('--WOMET', help='Analyze MET bin without single top')
-    parser.add_argument('--WOPT', help='Analyze PT bin without single top')
-    parser.add_argument('--WMET', help='Analyze MET bin with single top')
-    parser.add_argument('--WPT', help='Analyze PT bin with single top')
-    parser.add_argument('--Y', dest='discrepancy', help='Add the year of the data set')
-    parser.add_argument('--isTope', help='Analyze whether Top (e) or Top (mu) region')
+    parser.add_argument('-WOI', help='Analyze inclusive without single top')
+    parser.add_argument('-WI', help='Analyze inclusive with single top')
+    parser.add_argument('-WOMET', help='Analyze MET bin without single top')
+    parser.add_argument('-WOPT', help='Analyze PT bin without single top')
+    parser.add_argument('-WMET', help='Analyze MET bin with single top')
+    parser.add_argument('-WPT', help='Analyze PT bin with single top')
+    parser.add_argument('-Y', dest='discrepancy', help='Add the year of the data set')
+    parser.add_argument('-isTope', help='Analyze whether Top (e) or Top (mu) region')
     
     #Get arguments from the user
     args = parser.parse_args()
