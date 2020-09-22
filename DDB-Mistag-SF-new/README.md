@@ -16,7 +16,7 @@ git clone https://github.com/fasyakhuza/monoHbb/tree/master/DDB-Mistag-SF-new
 cd DDB-Mistag-SF-new
 ```
 
-## Run
+## Run for Top (e) and Top (muon) CR
 The `DDB_mistagSF.py` can be used for plotting DDB mistag scale factor of 2017 and 2018 data, for Top (e) and Top (muon) CR, and for several pT and MET bins, as well.
 
 Note: Don't forget to always do `cmsenv` whenever you want to run the python script
@@ -70,6 +70,28 @@ python DDB_mistagSF.py -Y 2017 -isTope True -WOMET 200-270
 or for 2018 data, Top (e) CR, and with single top, you can run using
 ```
 python DDB_mistagSF.py -Y 2018 -isTope True -WMET 345-1000
+```
+
+## Run for Top (e+mu)
+You can execute this
+```
+python mergeEandMu.py -Y year -isWithST True/False -a AnalysisRange
+```
+
+For year, you can use 2017 or 2018
+
+For AnalysisRange, you can change it with:
+* Inclusive
+* pT200-350
+* pT250-500
+* pT500-2000
+* MET200-270
+* MET270-345
+* MET345-1000
+
+For example:
+```
+python mergeEandMu.py -Y 2017 -isWithST False -a MET345-1000
 ```
 
 
