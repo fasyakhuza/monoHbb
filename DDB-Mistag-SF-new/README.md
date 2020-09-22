@@ -20,9 +20,9 @@ cd DDB-Mistag-SF-new
 ## Run for Top (e) and Top (muon) CR
 The `DDB_mistagSF.py` can be used for plotting DDB mistag scale factor of 2017 and 2018 data, for Top (e) and Top (muon) CR, and for several pT and MET bins, as well.
 
-Change the inputdirpath at L70 and L74 to be your inputdirpath.
+Change the `inputdirpath` at L70 and L74 to be your inputdirpath.
 
-Change the outdir at L75 to be your output directory.
+Change the `outdir` at L75 to be your output directory.
 
 Note: Don't forget to always do `cmsenv` whenever you want to run the python script
 
@@ -78,7 +78,7 @@ python DDB_mistagSF.py -Y 2018 -isTope True -WMET 345-1000
 ```
 
 ## Run for Top (e+mu)
-If you want to add dir path as input and output directory, you can change at L52 and L54
+If you want to add dir path as input and output directory, you can change or add the `dir` at L52 and L54
 
 You can execute this
 ```
