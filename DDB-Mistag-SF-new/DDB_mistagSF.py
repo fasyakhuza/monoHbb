@@ -107,8 +107,8 @@ def withSingleTopAndInclusive(x, year_, isTope):
     if not os.path.exists(outputpath):
         os.mkdir(outputpath)
     
-    totalmax = 1500
-    ttmax = 800
+    #totalmax = 1500
+    #ttmax = 800
 
 
     #---------------------------------#
@@ -456,6 +456,12 @@ def withSingleTopAndInclusive(x, year_, isTope):
     leg.SetBorderSize(0)
     leg.SetTextSize(0.027)
     
+    binvalues1 = []
+    for i in range(nbins):
+        binvalue = h_Data.GetBinContent(i)
+        binvalues1.append(binvalue)
+    totalmax = max(binvalues1) + 100
+    
     padMain.cd()
     
     h_TopMatchFinal.SetFillColor(821)
@@ -597,6 +603,12 @@ def withSingleTopAndInclusive(x, year_, isTope):
     leg2 = TLegend(0.4,0.5,0.6,0.6)
     leg2.SetBorderSize(0)
     leg2.SetTextSize(0.027)
+
+    binvalues2 = []
+    for i in range(nbins):
+        binvalue = SubtractedData.GetBinContent(i)
+        binvalues2.append(binvalue)
+    ttmax = max(binvalues2) + 50
 
     #h_ttFailed.Rebin(2)
     h_ttFailed.SetFillColor(821)
@@ -947,8 +959,8 @@ def withoutSingleTopAndInclusive(x, year_, isTope):
     if not os.path.exists(outputpath):
         os.mkdir(outputpath)
     
-    totalmax = 1500
-    ttmax = 800
+    #totalmax = 1500
+    #ttmax = 800
     
     
     #---------------------------------#
@@ -1235,6 +1247,12 @@ def withoutSingleTopAndInclusive(x, year_, isTope):
     leg.SetBorderSize(0)
     leg.SetTextSize(0.027)
     
+    binvalues1 = []
+    for i in range(nbins):
+        binvalue = h_Data.GetBinContent(i)
+        binvalues1.append(binvalue)
+    totalmax = max(binvalues1) + 100
+    
     padMain.cd()
     
     h_TopMatchFinal.SetFillColor(821)
@@ -1372,6 +1390,12 @@ def withoutSingleTopAndInclusive(x, year_, isTope):
     leg2.SetBorderSize(0)
     leg2.SetTextSize(0.027)
 
+    binvalues2 = []
+    for i in range(nbins):
+        binvalue = SubtractedData.GetBinContent(i)
+        binvalues2.append(binvalue)
+    ttmax = max(binvalues2) + 50
+    
     #h_ttFailed.Rebin(2)
     h_ttFailed.SetFillColor(821)
     h_ttFailed.SetLineColor(821)#922
@@ -1716,8 +1740,8 @@ def withSingleTopAndMETbins(lowerMET, upperMET, year_, isTope):
     if not os.path.exists(outputpath):
         os.mkdir(outputpath)
     
-    totalmax = 300
-    ttmax = 200
+    #totalmax = 300
+    #ttmax = 200
     
     #---------------------------------#
     #         TTtoSemileptonic        #
@@ -2059,7 +2083,13 @@ def withSingleTopAndMETbins(lowerMET, upperMET, year_, isTope):
     leg = TLegend(0.65,0.7,0.85,0.87)
     leg.SetBorderSize(0)
     leg.SetTextSize(0.027)
-
+    
+    binvalues1 = []
+    for i in range(nbins):
+        binvalue = h_Data.GetBinContent(i)
+        binvalues1.append(binvalue)
+    totalmax = max(binvalues1) + 100
+    
     padMain.cd()
 
     h_TopMatchFinal.SetFillColor(821)
@@ -2201,6 +2231,12 @@ def withSingleTopAndMETbins(lowerMET, upperMET, year_, isTope):
     leg2 = TLegend(0.4,0.5,0.6,0.6)
     leg2.SetBorderSize(0)
     leg2.SetTextSize(0.027)
+
+    binvalues2 = []
+    for i in range(nbins):
+        binvalue = SubtractedData.GetBinContent(i)
+        binvalues2.append(binvalue)
+    ttmax = max(binvalues2) + 50
     
     #h_ttFailed.Rebin(2)
     h_ttFailed.SetFillColor(821)
@@ -2546,8 +2582,8 @@ def withoutSingleTopAndMETbins(lowerMET, upperMET, year_, isTope):
     if not os.path.exists(outputpath):
         os.mkdir(outputpath)
     
-    totalmax = 300
-    ttmax = 200
+    #totalmax = 300
+    #ttmax = 200
 
 
     #---------------------------------#
@@ -2831,6 +2867,12 @@ def withoutSingleTopAndMETbins(lowerMET, upperMET, year_, isTope):
     leg.SetBorderSize(0)
     leg.SetTextSize(0.027)
     
+    binvalues1 = []
+    for i in range(nbins):
+        binvalue = h_Data.GetBinContent(i)
+        binvalues1.append(binvalue)
+    totalmax = max(binvalues1) + 100
+    
     padMain.cd()
     
     h_TopMatchFinal.SetFillColor(821)
@@ -2967,6 +3009,12 @@ def withoutSingleTopAndMETbins(lowerMET, upperMET, year_, isTope):
     leg2 = TLegend(0.4,0.5,0.6,0.6)
     leg2.SetBorderSize(0)
     leg2.SetTextSize(0.027)
+
+    binvalues2 = []
+    for i in range(nbins):
+        binvalue = SubtractedData.GetBinContent(i)
+        binvalues2.append(binvalue)
+    ttmax = max(binvalues2) + 50
     
     #h_ttFailed.Rebin(2)
     h_ttFailed.SetFillColor(821)
@@ -3309,8 +3357,8 @@ def withSingleTopAndpTbins(lowerpT, upperpT, year_, isTope):
     if not os.path.exists(outputpath):
         os.mkdir(outputpath)
     
-    totalmax = 500
-    ttmax = 300
+    #totalmax = 500
+    #ttmax = 300
     
     #---------------------------------#
     #         TTtoSemileptonic        #
@@ -3654,6 +3702,12 @@ def withSingleTopAndpTbins(lowerpT, upperpT, year_, isTope):
     leg.SetBorderSize(0)
     leg.SetTextSize(0.027)
     
+    binvalues1 = []
+    for i in range(nbins):
+        binvalue = h_Data.GetBinContent(i)
+        binvalues1.append(binvalue)
+    totalmax = max(binvalues1) + 100
+    
     padMain.cd()
     
     h_TopMatchFinal.SetFillColor(821)
@@ -3795,6 +3849,12 @@ def withSingleTopAndpTbins(lowerpT, upperpT, year_, isTope):
     leg2 = TLegend(0.4,0.5,0.6,0.6)
     leg2.SetBorderSize(0)
     leg2.SetTextSize(0.027)
+
+    binvalues2 = []
+    for i in range(nbins):
+        binvalue = SubtractedData.GetBinContent(i)
+        binvalues2.append(binvalue)
+    ttmax = max(binvalues2) + 50
     
     #h_ttFailed.Rebin(2)
     h_ttFailed.SetFillColor(821)
@@ -4140,8 +4200,8 @@ def withoutSingleTopAndpTbins(lowerpT, upperpT, year_, isTope):
     if not os.path.exists(outputpath):
         os.mkdir(outputpath)
     
-    totalmax = 500
-    ttmax = 300
+    #totalmax = 500
+    #ttmax = 300
 
 
     #---------------------------------#
@@ -4426,6 +4486,12 @@ def withoutSingleTopAndpTbins(lowerpT, upperpT, year_, isTope):
     leg.SetBorderSize(0)
     leg.SetTextSize(0.027)
     
+    binvalues1 = []
+    for i in range(nbins):
+        binvalue = h_Data.GetBinContent(i)
+        binvalues1.append(binvalue)
+    totalmax = max(binvalues1) + 100
+    
     padMain.cd()
     
     h_TopMatchFinal.SetFillColor(821)
@@ -4562,6 +4628,12 @@ def withoutSingleTopAndpTbins(lowerpT, upperpT, year_, isTope):
     leg2 = TLegend(0.4,0.5,0.6,0.6)
     leg2.SetBorderSize(0)
     leg2.SetTextSize(0.027)
+
+    binvalues2 = []
+    for i in range(nbins):
+        binvalue = SubtractedData.GetBinContent(i)
+        binvalues2.append(binvalue)
+    ttmax = max(binvalues2) + 50
     
     #h_ttFailed.Rebin(2)
     h_ttFailed.SetFillColor(821)

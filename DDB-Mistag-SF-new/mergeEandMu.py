@@ -234,6 +234,12 @@ def mistagSFtopEMu(year_, isWithST, ana_):
     c1.SetLeftMargin(0.15)
     gStyle.SetOptStat(0)
 
+    binvalues1 = []
+    for i in range(nbins):
+        binvalue = unsubtractedDataMerge.GetBinContent(i)
+        binvalues1.append(binvalue)
+    totalmax = max(binvalues1) + 100
+
     padMain = TPad("padMain", "", 0.0, 0.25, 1.0, 0.97)
     padMain.SetTopMargin(0.4)
     padMain.SetRightMargin(0.05)
@@ -254,7 +260,7 @@ def mistagSFtopEMu(year_, isWithST, ana_):
     gPad.GetUymax()
     leg1 = myLegend(coordinate=[0.45,0.57,0.65,0.6])
 
-    #unsubtractedDataMerge.SetMaximum(40)#17000
+    unsubtractedDataMerge.SetMaximum(totalmax)
     unsubtractedDataMerge.SetLineColor(1)
     unsubtractedDataMerge.SetMarkerStyle(20)
     unsubtractedDataMerge.SetMarkerSize(1.5)
@@ -315,7 +321,13 @@ def mistagSFtopEMu(year_, isWithST, ana_):
     gPad.GetUymax()
     leg2 = myLegend()
 
-    #failMCsubtractMerge.SetMaximum(1800)#1200
+    binvalues2 = []
+    for i in range(nbins):
+        binvalue = subtractedDataMerge.GetBinContent(i)
+        binvalues2.append(binvalue)
+    ttmax = max(binvalues2) + 50
+    
+    failMCsubtractMerge.SetMaximum(ttmax)
     failMCsubtractMerge.SetFillColor(821)
     failMCsubtractMerge.SetLineColor(821)#922
     failMCsubtractMerge.GetXaxis().SetTitle("Double b score")
