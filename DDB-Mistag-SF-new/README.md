@@ -3,6 +3,7 @@
 Directory structure: 
 
 DDB-Mistag-SF-new/DDB_mistagSF.py : for plotting Top (e) and Top (muon) CR histograms and calculating the statistical uncertainty
+DDB-Mistag-SF-new/mergeEandMu.py : for plotting Top (e + muon) CR histograms and calculating the statistical uncertainty
 
 ## Setup framework 
 You have to run the python script under CMS environment in lxplus
