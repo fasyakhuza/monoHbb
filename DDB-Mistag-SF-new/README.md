@@ -6,7 +6,7 @@ DDB-Mistag-SF-new/DDB_mistagSF.py : for plotting Top (e) and Top (muon) CR histo
 DDB-Mistag-SF-new/mergeEandMu.py : for plotting Top (e + muon) CR histograms and calculating the statistical uncertainty
 
 ## Setup framework 
-You have to run the python script under CMS environment in lxplus
+You have to run the python script under CMS environment in lxplus. You can use any CMS environment. If you want to built one, you can follow the following instruction.
 
 ```
 export SCRAM_ARCH=slc7_amd64_gcc700
@@ -19,6 +19,9 @@ cd DDB-Mistag-SF-new
 
 ## Run for Top (e) and Top (muon) CR
 The `DDB_mistagSF.py` can be used for plotting DDB mistag scale factor of 2017 and 2018 data, for Top (e) and Top (muon) CR, and for several pT and MET bins, as well.
+
+Change the inputdirpath at L70 and L74 to be your inputdirpath.
+Change the outdir at L75 to be your output directory.
 
 Note: Don't forget to always do `cmsenv` whenever you want to run the python script
 
@@ -74,6 +77,8 @@ python DDB_mistagSF.py -Y 2018 -isTope True -WMET 345-1000
 ```
 
 ## Run for Top (e+mu)
+If you want to add dir path as input and output directory, you can change at L52 and L54
+
 You can execute this
 ```
 python mergeEandMu.py -Y year -isWithST True/False -a AnalysisRange
