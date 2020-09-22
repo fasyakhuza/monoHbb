@@ -13,7 +13,7 @@ export SCRAM_ARCH=slc7_amd64_gcc700
 cmsrel CMSSW_10_3_0
 cd CMSSW_10_3_0/src
 cmsenv
-git clone https://github.com/fasyakhuza/monoHbb/tree/master/DDB-Mistag-SF-new
+git clone https://github.com/fasyakhuza/monoHbb.git
 cd DDB-Mistag-SF-new
 ```
 
