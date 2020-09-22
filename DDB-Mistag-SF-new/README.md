@@ -78,7 +78,7 @@ python DDB_mistagSF.py -Y 2018 -isTope True -WMET 345-1000
 ```
 
 ## Run for Top (e+mu)
-This `mergeEandMu.py` need TopE.root and TopMu.root which are produced by using previous python script. They are located in output directory as the results of previous python script.
+This `mergeEandMu.py` need TopE.root and TopMu.root which are produced by using previous python script, thus you have to run the previous script before you run this script. They are located in output directory as the results of previous python script.
 
 If you want to add dir path as input and output directory, you can change or add the `dir` at L52 and L54
 
