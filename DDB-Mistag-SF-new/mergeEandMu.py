@@ -1,7 +1,7 @@
 #created by Fasya Khuzaimah on 2020.04.17
 
 import ROOT
-from ROOT import TFile, TTree, TH1F, TCanvas, TLegend, TAxis, TLatex, TPad, TPaveText, THStack, TMath, TGraphErrors, TMultiGraph, gStyle, gPad
+from ROOT import TFile, TTree, TH1F, TCanvas, TLegend, TAxis, TLatex, TPad, TPaveText, THStack, TMath, TGraphErrors, TMultiGraph, gStyle, gPad, gROOT
 import array as arr
 import numpy as np
 import argparse
@@ -585,6 +585,8 @@ def mistagSFtopEMu(year_, isWithST, ana_):
                                       
 
 if __name__ == '__main__':
+    gROOT.SetBatch(True)
+    
     parser = argparse.ArgumentParser(description='Calculate and draw plots of DDB mistag scale factor for Top (e+muon) CR')
     
     #add command
