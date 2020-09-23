@@ -14,6 +14,9 @@ cmsrel CMSSW_10_3_0
 cd CMSSW_10_3_0/src
 cmsenv
 git clone https://github.com/fasyakhuza/monoHbb.git
+rm -r DDB_Mistag_SF
+rm -r HEM_Issue
+rm -r stackHistoPlots
 cd DDB-Mistag-SF-new
 ```
 
