@@ -418,7 +418,7 @@ def getLumiUncertainties(Data_path, year_, ana, treeName, isUp, isEle):
     
     if year_ == 2017:
         L = 41500.0#/pb ; integrated luminosity
-        version = "monohbb.v06.00.01.2017_NCU/"
+        version = "monohbb.v06.00.05.2017_NCU/"
     if year_ == 2018:
         L = 58827.0#/pb ; integrated luminosity
         version = "monohbb.v06.00.05.2018_NCU/"
@@ -746,7 +746,7 @@ if __name__ == '__main__':
                 XSuncertainties.append(str(round(newTotalUnc, 3)))#Upper Region
                 XSuncertaintiesFloat.append(round(newTotalUnc, 3))
                 #print "Top e", round(newTotalUnc, 3)
-                XSuncertainties.append(str(round(newTotalUnc, 3)))#Bottom Region
+                XSuncertainties.append("-"+str(round(newTotalUnc, 3)))#Bottom Region
                 XSuncertaintiesFloat.append(round(newTotalUnc, 3))
                 #print "Top e", round(newTotalUnc, 3)
 
@@ -813,7 +813,7 @@ if __name__ == '__main__':
                 XSuncertainties.append(str(round(newTotalUnc, 3)))#Upper Region
                 XSuncertaintiesFloat.append(round(newTotalUnc, 3))
                 #print "Top mu", round(newTotalUnc, 3)
-                XSuncertainties.append(str(round(newTotalUnc, 3)))#Bottom Region
+                XSuncertainties.append("-"+str(round(newTotalUnc, 3)))#Bottom Region
                 XSuncertaintiesFloat.append(round(newTotalUnc, 3))
                 #print "Top mu", round(newTotalUnc, 3)
 
@@ -963,7 +963,7 @@ if __name__ == '__main__':
                 XSuncertainties.append(str(round(newTotalUnc, 3)))#Upper Region
                 XSuncertaintiesFloat.append(round(newTotalUnc, 3))
                 #print "Top e+mu", round(newTotalUnc, 3)
-                XSuncertainties.append(str(round(newTotalUnc, 3)))#Bottom Region
+                XSuncertainties.append("-"+str(round(newTotalUnc, 3)))#Bottom Region
                 XSuncertaintiesFloat.append(round(newTotalUnc, 3))
                 #print "Top e+mu", round(newTotalUnc, 3)
 
@@ -1120,7 +1120,10 @@ if __name__ == '__main__':
                 XSsys = XSuncertaintiesFloat[i+1]
                 Lumisys = LumiUncertaintiesFloat[i+1]
                 iTotalSys = TMath.Sqrt(XSsys**2 + Lumisys**2)
-                TotalSysList.append(str(round(iTotalSys, 3)))
+                if i == 2 or i == 4 or i == 6:
+                    TotalSysList.append("-"+str(round(iTotalSys, 3)))
+                else:
+                    TotalSysList.append(str(round(iTotalSys, 3)))
             
             makeTable(header, row1, XSuncertainties, LumiUncertaintiesList, TotalSysList)
 
