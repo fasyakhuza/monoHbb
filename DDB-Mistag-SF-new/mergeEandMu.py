@@ -49,7 +49,7 @@ def dataPredRatio(data_, totalBkg_):
 
 def mistagSFtopEMu(year_, isWithST, ana_):
     if isWithST == "True":
-        dir = "withSingleTop/"+ana_+"/"
+        dir = "monohbb.v06.00.05.2017_NCU/withSingleTop/"+ana_+"/"
     else:
         dir = "withoutSingleTop/"+ana_+"/"
 
@@ -235,7 +235,7 @@ def mistagSFtopEMu(year_, isWithST, ana_):
     gStyle.SetOptStat(0)
 
     binvalues1 = []
-    for i in range(nbins):
+    for i in range(14):
         binvalue = unsubtractedDataMerge.GetBinContent(i)
         binvalues1.append(binvalue)
     totalmax = max(binvalues1) + 100
@@ -322,7 +322,7 @@ def mistagSFtopEMu(year_, isWithST, ana_):
     leg2 = myLegend()
 
     binvalues2 = []
-    for i in range(nbins):
+    for i in range(14):
         binvalue = subtractedDataMerge.GetBinContent(i)
         binvalues2.append(binvalue)
     ttmax = max(binvalues2) + 50
