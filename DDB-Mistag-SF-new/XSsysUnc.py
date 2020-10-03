@@ -70,27 +70,52 @@ dataTotalUpTopMu = []
 dataTotalDownTopE = []
 dataTotalDownTopMu = []
 
-numberpriorSFinclusive = [0.880, 0.817, 0.842]
-numberpriorSFpt200_350 = [0.959, 0.781, 0.852]
-numberpriorSFpt350_500 = [0.828, 0.901, 0.871]
-numberpriorSFpt500_inf = [0.807, 0.417, 0.565]
-numberpriorSFmet200_270 = [0.834, 0.720, 0.762]
-numberpriorSFmet270_345 = [0.582, 0.747, 0.687]
-numberpriorSFmet345_1000 = [1.567, 0.747, 0.940]
+def priorSFlists(year_):
+    if year_ == 2017:
+        '''
+        #monohbb.v06.00.01.2017_NCU
+        numberpriorSFinclusive = [0.880, 0.817, 0.842]
+        numberpriorSFpt200_350 = [0.959, 0.781, 0.852]
+        numberpriorSFpt350_500 = [0.828, 0.901, 0.871]
+        numberpriorSFpt500_inf = [0.807, 0.417, 0.565]
+        numberpriorSFmet200_270 = [0.834, 0.720, 0.762]
+        numberpriorSFmet270_345 = [0.582, 0.747, 0.687]
+        numberpriorSFmet345_1000 = [1.567, 0.747, 0.940]
+        '''
+        
+        #monohbb.v06.00.05.2017_NCU
+        numberpriorSFinclusive = [0.846, 0.833, 0.838]
+        numberpriorSFpt200_350 = [0.856, 0.817, 0.832]
+        numberpriorSFpt350_500 = [0.844, 0.862, 0.856]
+        numberpriorSFpt500_inf = [0.722, 0.657, 0.682]
+        numberpriorSFmet200_270 = [0.88, 0.789, 0.822]
+        numberpriorSFmet270_345 = [0.661, 0.774, 0.740]
+        numberpriorSFmet345_1000 = [1.096, 0.762, 0.855]
+    
 
+    if year_ == 2018:
+        numberpriorSFinclusive = [0.852, 0.881, 0.869]
+        numberpriorSFpt200_350 = [0.806, 0.862, 0.839]
+        numberpriorSFpt350_500 = [0.882, 0.895, 0.889]
+        numberpriorSFpt500_inf = [0.967, 0.909, 0.937]
+        numberpriorSFmet200_270 = [0.878, 0.766, 0.811]
+        numberpriorSFmet270_345 = [0.857, 0.967, 0.93]
+        numberpriorSFmet345_1000 = [0.627, 0.945, 0.799]
+
+    return [numberpriorSFinclusive, numberpriorSFpt200_350, numberpriorSFpt350_500, numberpriorSFpt500_inf, numberpriorSFmet200_270, numberpriorSFmet270_345, numberpriorSFmet345_1000]
 
 
 def getXSuncertainties(Data_path, treeName, year_, ana, isEle, isUp):
-    print "\nGetting Systematic Uncertainty from Cross Section"
+    #print "\nGetting Systematic Uncertainty from Cross Section"
     
     if year_ == 2017:
         L = 41500.0#/pb ; integrated luminosity
         version = "monohbb.v06.00.05.2017_NCU/"
-        print "\nProcessing 2017 data, ", version, " version"
+        #print "\nProcessing 2017 data, ", version, " version"
     if year_ == 2018:
         L = 58827.0#/pb ; integrated luminosity
         version = "monohbb.v06.00.05.2018_NCU/"
-        print "\nProcessing 2018 data, ", version, " version"
+        #print "\nProcessing 2018 data, ", version, " version"
     
     dirpath = "/afs/cern.ch/work/f/fkhuzaim/DDB_MistagSF/"+version+"combined/"
 
@@ -106,7 +131,7 @@ def getXSuncertainties(Data_path, treeName, year_, ana, isEle, isUp):
         numberpriorSF = numberpriorSFmet200_270
     if ana == "MET-270-345":
         numberpriorSF = numberpriorSFmet270_345
-    if ana == "MET-345-100":
+    if ana == "MET-345-1000":
         numberpriorSF = numberpriorSFmet345_1000
 
     
@@ -160,7 +185,7 @@ def getXSuncertainties(Data_path, treeName, year_, ana, isEle, isUp):
                 h_ttFailed.Fill(CSV_Top)
             if (SD_Top > 100.0) and (SD_Top < 150.0) and (dPhi_Top > 0.4) and (CSV_Top > 0.86) and (nJets_Top <= 2):
                 h_ttPassed.Fill(CSV_Top)
-        if ana == "MET-200-270" or ana == "MET-270-345" or ana == "MET-345-100":
+        if ana == "MET-200-270" or ana == "MET-270-345" or ana == "MET-345-1000":
             metbins = ana.split("-")
             if (SD_Top > 100.0) and (SD_Top < 150.0) and (dPhi_Top > 0.4) and (CSV_Top <= 0.86) and (nJets_Top <= 2) and (met_Top > int(metbins[1])) and (met_Top <= int(metbins[2])):
                 h_ttFailed.Fill(CSV_Top)
@@ -224,9 +249,6 @@ def getXSuncertainties(Data_path, treeName, year_, ana, isEle, isUp):
         h_Data.Reset()
         h_Data_Passed.Reset()
         h_Data_Failed.Reset()
-        h_Bkg.Reset()
-        h_BkgPass.Reset()
-        h_BkgFail.Reset()
         h_sumBkg.Reset()
         h_sumBkgPass.Reset()
         h_sumBkgFail.Reset()
@@ -253,7 +275,7 @@ def getXSuncertainties(Data_path, treeName, year_, ana, isEle, isUp):
                     h_Data_Failed.Fill(CSV_Data)
                 if (SD_Data > 100.0) and (SD_Data < 150.0) and (dPhi_Data > 0.4) and (CSV_Data > 0.86) and (nJets_Data <= 2):
                     h_Data_Passed.Fill(CSV_Data)
-            if ana == "MET-200-270" or ana == "MET-270-345" or ana == "MET-345-100":
+            if ana == "MET-200-270" or ana == "MET-270-345" or ana == "MET-345-1000":
                 metbins = ana.split("-")
                 if (SD_Data > 100.0) and (SD_Data < 150.0) and (dPhi_Data > 0.4) and (nJets_Data <= 2) and (met_Data > int(metbins[1])) and (met_Data <= int(metbins[2])):
                     h_Data.Fill(CSV_Data)
@@ -271,6 +293,10 @@ def getXSuncertainties(Data_path, treeName, year_, ana, isEle, isUp):
                     h_Data_Passed.Fill(CSV_Data)
 
         for k in range(len(Bkg_files)):
+            h_Bkg.Reset()
+            h_BkgPass.Reset()
+            h_BkgFail.Reset()
+    
             openkBkg = TFile(dirpath+Bkg_files[k], "read")
             h_total_mcweight_kBkg = openkBkg.Get("h_total_mcweight")
             totalEventskBkg = h_total_mcweight_kBkg.Integral()
@@ -293,7 +319,7 @@ def getXSuncertainties(Data_path, treeName, year_, ana, isEle, isUp):
                         h_BkgFail.Fill(CSV_iBkgEvent)
                     if (SD_iBkgEvent > 100.0) and (SD_iBkgEvent < 150.0) and (dPhi_iBkgEvent > 0.4) and (CSV_iBkgEvent > 0.86) and (nJets_iBkgEvent <= 2):
                         h_BkgPass.Fill(CSV_iBkgEvent)
-                if ana == "MET-200-270" or ana == "MET-270-345" or ana == "MET-345-100":
+                if ana == "MET-200-270" or ana == "MET-270-345" or ana == "MET-345-1000":
                     metbins = ana.split("-")
                     if (SD_iBkgEvent > 100.0) and (SD_iBkgEvent < 150.0) and (dPhi_iBkgEvent > 0.4) and (nJets_iBkgEvent <= 2) and (met_iBkgEvent > int(metbins[1])) and (met_iBkgEvent <= int(metbins[2])):
                         h_Bkg.Fill(CSV_iBkgEvent)
@@ -413,15 +439,18 @@ lumidataTotalDownTopE = []
 lumidataTotalDownTopMu = []
 
 def getLumiUncertainties(Data_path, year_, ana, treeName, isUp, isEle):
-    print "\nGetting Systematic Uncertainties from Luminosity Unc"
-    print " "
+    #print "\nGetting Systematic Uncertainties from Luminosity Unc"
+    #print " "
     
     if year_ == 2017:
         L = 41500.0#/pb ; integrated luminosity
         version = "monohbb.v06.00.05.2017_NCU/"
+        #print "\nProcessing 2017 data, ", version, " version"
     if year_ == 2018:
         L = 58827.0#/pb ; integrated luminosity
         version = "monohbb.v06.00.05.2018_NCU/"
+        #print "\nProcessing 2018 data, ", version, " version"
+    
     dirpath = "/afs/cern.ch/work/f/fkhuzaim/DDB_MistagSF/"+version+"combined/"
 
     if ana == "Inclusive":
@@ -436,9 +465,14 @@ def getLumiUncertainties(Data_path, year_, ana, treeName, isUp, isEle):
         numberpriorSF = numberpriorSFmet200_270
     if ana == "MET-270-345":
         numberpriorSF = numberpriorSFmet270_345
-    if ana == "MET-345-100":
+    if ana == "MET-345-1000":
         numberpriorSF = numberpriorSFmet345_1000
     
+    if isUp:
+        lumi = L*1.023
+    if not isUp:
+        lumi = L*0.977
+    #print "luminosity: ", lumi
 
     if year_ == 2017:
         Top_path = "combined_crab_TTToSemiLeptonic_TuneCP5_PSweights_13TeV-powheg-pythia8.root"
@@ -458,9 +492,6 @@ def getLumiUncertainties(Data_path, year_, ana, treeName, isUp, isEle):
     
     xsBkg = [1395.0, 407.9, 57.48, 12.87, 5.366, 1.074, 0.008001, 12.14, 75.8, 27.6, 3.74, 67.91, 113.3, 34.97, 34.91]
 
-
-    if isUp: lumi = L*1.023
-    if not isUp : lumi = L*0.977
     
     h_ttFailed = TH1F("h_ttFailed", "", nbins, edges)
     h_ttPassed = TH1F("h_ttPassed", "", nbins, edges)
@@ -489,7 +520,7 @@ def getLumiUncertainties(Data_path, year_, ana, treeName, isUp, isEle):
                 h_ttFailed.Fill(CSV_Top)
             if (SD_Top > 100.0) and (SD_Top < 150.0) and (dPhi_Top > 0.4) and (CSV_Top > 0.86) and (nJets_Top <= 2):
                 h_ttPassed.Fill(CSV_Top)
-        if ana == "MET-200-270" or ana == "MET-270-345" or ana == "MET-345-100":
+        if ana == "MET-200-270" or ana == "MET-270-345" or ana == "MET-345-1000":
             metbins = ana.split("-")
             if (SD_Top > 100.0) and (SD_Top < 150.0) and (dPhi_Top > 0.4) and (CSV_Top <= 0.86) and (nJets_Top <= 2) and (met_Top > int(metbins[1])) and (met_Top <= int(metbins[2])):
                 h_ttFailed.Fill(CSV_Top)
@@ -540,9 +571,6 @@ def getLumiUncertainties(Data_path, year_, ana, treeName, isUp, isEle):
     h_Data.Reset()
     h_Data_Passed.Reset()
     h_Data_Failed.Reset()
-    h_Bkg.Reset()
-    h_BkgPass.Reset()
-    h_BkgFail.Reset()
     h_sumBkg.Reset()
     h_sumBkgPass.Reset()
     h_sumBkgFail.Reset()
@@ -569,7 +597,7 @@ def getLumiUncertainties(Data_path, year_, ana, treeName, isUp, isEle):
                 h_Data_Failed.Fill(CSV_Data)
             if (SD_Data > 100.0) and (SD_Data < 150.0) and (dPhi_Data > 0.4) and (CSV_Data > 0.86) and (nJets_Data <= 2):
                 h_Data_Passed.Fill(CSV_Data)
-        if ana == "MET-200-270" or ana == "MET-270-345" or ana == "MET-345-100":
+        if ana == "MET-200-270" or ana == "MET-270-345" or ana == "MET-345-1000":
             metbins = ana.split("-")
             if (SD_Data > 100.0) and (SD_Data < 150.0) and (dPhi_Data > 0.4) and (nJets_Data <= 2) and (met_Data > int(metbins[1])) and (met_Data <= int(metbins[2])):
                 h_Data.Fill(CSV_Data)
@@ -587,6 +615,10 @@ def getLumiUncertainties(Data_path, year_, ana, treeName, isUp, isEle):
                 h_Data_Passed.Fill(CSV_Data)
 
     for k in range(len(Bkg_files)):
+        h_Bkg.Reset()
+        h_BkgPass.Reset()
+        h_BkgFail.Reset()
+    
         openkBkg = TFile(dirpath+Bkg_files[k], "read")
         h_total_mcweight_kBkg = openkBkg.Get("h_total_mcweight")
         totalEventskBkg = h_total_mcweight_kBkg.Integral()
@@ -609,7 +641,7 @@ def getLumiUncertainties(Data_path, year_, ana, treeName, isUp, isEle):
                     h_BkgFail.Fill(CSV_iBkgEvent)
                 if (SD_iBkgEvent > 100.0) and (SD_iBkgEvent < 150.0) and (dPhi_iBkgEvent > 0.4) and (CSV_iBkgEvent > 0.86) and (nJets_iBkgEvent <= 2):
                     h_BkgPass.Fill(CSV_iBkgEvent)
-            if ana == "MET-200-270" or ana == "MET-270-345" or ana == "MET-345-100":
+            if ana == "MET-200-270" or ana == "MET-270-345" or ana == "MET-345-1000":
                 metbins = ana.split("-")
                 if (SD_iBkgEvent > 100.0) and (SD_iBkgEvent < 150.0) and (dPhi_iBkgEvent > 0.4) and (nJets_iBkgEvent <= 2) and (met_iBkgEvent > int(metbins[1])) and (met_iBkgEvent <= int(metbins[2])):
                     h_Bkg.Fill(CSV_iBkgEvent)
@@ -655,9 +687,13 @@ def getLumiUncertainties(Data_path, year_, ana, treeName, isUp, isEle):
 
     if isEle:
         priorSF = numberpriorSF[0]
+        #print "priorSF", priorSF
     if not isEle:
         priorSF = numberpriorSF[1]
+        #print "priorSF", priorSF
+
     lumiuncertainty = lumiSF - priorSF
+    #print "lumi uncer ", lumiuncertainty
     lumiUncInPercentage = lumiuncertainty/priorSF*100
 
 
@@ -678,6 +714,14 @@ if __name__ == '__main__':
     args = parser.parse_args()
     
     if args.discrepancy:
+        priorSFlists_ = priorSFlists(int(args.discrepancy))
+        numberpriorSFinclusive = priorSFlists_[0]
+        numberpriorSFpt200_350 = priorSFlists_[1]
+        numberpriorSFpt350_500 = priorSFlists_[2]
+        numberpriorSFpt500_inf = priorSFlists_[3]
+        numberpriorSFmet200_270 = priorSFlists_[4]
+        numberpriorSFmet270_345 = priorSFlists_[5]
+        numberpriorSFmet345_1000 = priorSFlists_[6]
         if args.a:
             
             #---------------------------------#
@@ -686,7 +730,7 @@ if __name__ == '__main__':
             #       Cross Section (Up)        #
             #---------------------------------#
 
-            print "\nTOP (e) CR REGION"
+            print "\nTOP (e) CR REGION for Cross Section Sys"
             print "Up"
             print ""
 
@@ -758,7 +802,7 @@ if __name__ == '__main__':
             #       Cross Section (Up)        #
             #---------------------------------#
 
-            print "\nTOP (muon) CR REGION"
+            print "\nTOP (muon) CR REGION for Cross Section Sys"
             print "Up"
             print ""
 
@@ -825,7 +869,7 @@ if __name__ == '__main__':
             #          Cross Section          #
             #---------------------------------#
             
-            print "\nTOP (e+mu) CONTROL REGION"
+            print "\nTOP (e+mu) CONTROL REGION for Cross Section Sys"
             print ""
             
             if args.a == "Inclusive":
@@ -840,7 +884,7 @@ if __name__ == '__main__':
                 priorSFmerge = numberpriorSFmet200_270[2]
             if args.a == "MET-270-345":
                 priorSFmerge = numberpriorSFmet270_345[2]
-            if args.a == "MET-345-100":
+            if args.a == "MET-345-1000":
                 priorSFmerge = numberpriorSFmet345_1000[2]
 
 
@@ -990,8 +1034,9 @@ if __name__ == '__main__':
             print ""
             
             getSESFupLumi = getLumiUncertainties(Data_path = SE_path, year_ = int(args.discrepancy), ana = args.a, treeName = "monoHbb_Tope_boosted", isUp = True, isEle = True)
+            
+            #print "\nSE SFup of Lumi sys:", getSESFupLumi[0]
             '''
-            print "\nSE SFup of Lumi sys:", getSESFupLumi[0]
             print "\nSE Lumi Uncertainty (Up):", getSESFupLumi[1]
             print "\nSE Lumi Relative Uncertainty in Percentage (Up):", getSESFupLumi[2]
             '''
@@ -1007,8 +1052,9 @@ if __name__ == '__main__':
             print ""
 
             getSESFdownLumi = getLumiUncertainties(Data_path = SE_path, year_ = int(args.discrepancy), ana = args.a, treeName = "monoHbb_Tope_boosted", isUp = False, isEle = True)
+            
+            #print "\nSE SFdown of Lumi sys :", getSESFdownLumi[0]
             '''
-            print "\nSE SFdown of Lumi sys :", getSESFdownLumi[0]
             print "\nSE Lumi Uncertainty (Down):", getSESFdownLumi[1]
             print "\nSE Lumi Relative Uncertainty in Percentage (Down):", getSESFdownLumi[2]
             '''
@@ -1027,8 +1073,9 @@ if __name__ == '__main__':
             print ""
             
             getMETSFupLumi = getLumiUncertainties(Data_path = MET_path, year_ = int(args.discrepancy), ana = args.a, treeName = "monoHbb_Topmu_boosted", isUp = True, isEle = False)
+            
+            #print "\nMET SFup of Lumi sys:", getMETSFupLumi[0]
             '''
-            print "\nMET SFup of Lumi sys:", getMETSFupLumi[0]
             print "\nMET Lumi Uncertainty (Up):", getMETSFupLumi[1]
             print "\nMET Lumi Relative Uncertainty in Percentage (Up):", getMETSFupLumi[2]
             '''
@@ -1043,8 +1090,9 @@ if __name__ == '__main__':
             print ""
 
             getMETSFdownLumi = getLumiUncertainties(Data_path = MET_path, year_ = int(args.discrepancy), ana = args.a, treeName = "monoHbb_Topmu_boosted", isUp = False, isEle = False)
+            
+            #print "\nMET SFdown of Lumi sys:", getMETSFdownLumi[0]
             '''
-            print "\nMET SFdown of Lumi sys:", getMETSFdownLumi[0]
             print "\nMET Lumi Uncertainty (Down):", getMETSFdownLumi[1]
             print "\nMET Lumi Relative Uncertainty in Percentage (Down):", getMETSFdownLumi[2]
             '''
@@ -1079,9 +1127,10 @@ if __name__ == '__main__':
             LumiUncertaintiesFloat.append(round(lumiUncMergeUp, 3))
             
             lumiRelativeUncMergeUp = lumiUncMergeUp/priorSFmerge*100
+            
+            #print "\nEfficiency of tt Data (Merge Up) of Luminosity:", lumittDataEfficiencyMergeUp
+            #print "\nSF Merge Up of Luminosity:", lumiSFmergeUp
             '''
-            print "\nEfficiency of tt Data (Merge Up) of Luminosity:", lumittDataEfficiencyMergeUp
-            print "\nSF Merge Up of Luminosity:", lumiSFmergeUp
             print "\nUncertainty Merge Up of Luminosity:", lumiUncMergeUp
             print "\nRelative Uncertainty Merge Up in Percen of Luminosity:", lumiRelativeUncMergeUp
             '''
@@ -1106,9 +1155,10 @@ if __name__ == '__main__':
             LumiUncertaintiesFloat.append(round(lumiUncMergeDown, 3))
             
             lumiRelativeUncMergeDown = lumiUncMergeDown/priorSFmerge*100
+            
+            #print "\nEfficiency of tt Data (Merge Down) of Luminosity:", lumittDataEfficiencyMergeDown
+            #print "\nSF Merge Down of Luminosity:", lumiSFmergeDown
             '''
-            print "\nEfficiency of tt Data (Merge Down) of Luminosity:", lumittDataEfficiencyMergeDown
-            print "\nSF Merge Down of Luminosity:", lumiSFmergeDown
             print "\nUncertainty Merge Down of Luminosity:", lumiUncMergeDown
             print "\nRelative Uncertainty Merge Down in Percen of Luminosity:", lumiRelativeUncMergeDown
             '''
@@ -1120,7 +1170,7 @@ if __name__ == '__main__':
                 XSsys = XSuncertaintiesFloat[i+1]
                 Lumisys = LumiUncertaintiesFloat[i+1]
                 iTotalSys = TMath.Sqrt(XSsys**2 + Lumisys**2)
-                if i == 2 or i == 4 or i == 6:
+                if i == 1 or i == 3 or i == 5:
                     TotalSysList.append("-"+str(round(iTotalSys, 3)))
                 else:
                     TotalSysList.append(str(round(iTotalSys, 3)))
