@@ -103,4 +103,34 @@ For example:
 python mergeEandMu.py -Y 2017 -a MET-345-1000
 ```
 
+## Calculate Systematic Uncertainty
+`XSsysUnc.py` is needed to calculate the systematic uncertainty. This will take a bit long time for running this python script.
+
+You can change the ntuples path at L113 and L117.
+
+For 2017 data, if you want to use `monohbb.v06.00.01.2017_NCU` version, you can uncomment L76-L83 and turn L86-L93 to be comment, and vice versa.
+
+To run this python script, you can follow this command
+```
+python XSsysUnc.py -Y year -a analysis
+```
+
+You can use 2017 or 2018 for year
+
+For analysis, you can change it to be:
+* Inclusive
+* PT-200-350
+* PT-350-500
+* PT-350-2000
+* MET-200-270
+* MET-270-345
+* MET-345-1000
+
+Thus, for example, if you want to calculate the systematic uncertainty of DDB mistag scale factor of MET-270-345 bin for 2018 data, you can run:
+```
+python XSsysUnc.py -Y 2018 -a MET-270-345
+```
+
+
+
 
