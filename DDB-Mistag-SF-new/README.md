@@ -100,7 +100,7 @@ For AnalysisRange, you can change it with:
 
 For example:
 ```
-python mergeEandMu.py -Y 2017 -a MET345-1000
+python mergeEandMu.py -Y 2017 -a MET-345-1000
 ```
 
 
