@@ -41,43 +41,40 @@ There are 3 arguments you have to use for running this python script.
 ```
 3. The range and with/without single top process
 ```
--WOI Inclusive [without single top for inclusive analysis]
 -WI Inclusive [with single top for inclusive analysis]
--WOPT range [This is if you want analyze WITHOUT single top. You can change the "range" to be 200-350, 350-500, and 350-2000.]
--WPT range [This is if you want analyze WITH single top. You can change the "range" to be 200-350, 350-500, and 350-2000.]
--WOMET range [This is if you want analyze WITHOUT single top. You can change the "range" to be 200-270, 270-345, and 345-1000.]
--WMET range [This is if you want analyze WITH single top. You can change the "range" to be 200-270, 270-345, and 345-1000.]
+-WPT range [This is if you want to analyze in pT bins variation. You can change the "range" to be PT-200-350, PT-350-500, and PT-350-2000.]
+-WMET range [This is if you want to analyze in several MET variation. You can change the "range" to be MET-200-270, MET-270-345, and MET-345-1000.]
 ```
 
 ### For example:
 
-1. For Inclusive analysis, Top (e) CR, and without single top process
+1. For Inclusive analysis, for 2017 data and Top (e) CR
 ```
-python DDB_mistagSF.py -Y 2017 -isTope True -WOI Inclusive
+python DDB_mistagSF.py -Y 2017 -isTope True -WI Inclusive
 ```
-or for 2018 data, Top (muon) CR, and with single top, you can run using
+or for 2018 data and Top (muon) CR, you can run using
 ```
 python DDB_mistagSF.py -Y 2018 -isTope False -WI Inclusive
 ```
 
 
-2. For PT bin analysis, Top (e) CR, and without single top process
+2. For PT bin analysis, for 2017 data and Top (e) CR
 ```
-python DDB_mistagSF.py -Y 2017 -isTope True -WOPT 200-350
+python DDB_mistagSF.py -Y 2017 -isTope True -WPT PT-200-350
 ```
-or for 2018 data, Top (muon) CR, and with single top, you can run using
+or for 2018 data and Top (muon) CR, you can run using
 ```
-python DDB_mistagSF.py -Y 2018 -isTope False -WPT 350-500
+python DDB_mistagSF.py -Y 2018 -isTope False -WPT PT-350-500
 ```
 
 
-3. For MET bin analysis, Top (e) CR, and without single top process
+3. For MET bin analysis, for 2017 data and Top (e) CR
 ```
-python DDB_mistagSF.py -Y 2017 -isTope True -WOMET 200-270
+python DDB_mistagSF.py -Y 2017 -isTope True -WMET MET-200-270
 ```
-or for 2018 data, Top (e) CR, and with single top, you can run using
+or for 2018 data and Top (muon) CR, you can run using
 ```
-python DDB_mistagSF.py -Y 2018 -isTope True -WMET 345-1000
+python DDB_mistagSF.py -Y 2018 -isTope False -WMET MET-345-1000
 ```
 
 ## Run for Top (e+mu)
@@ -87,23 +84,23 @@ If you want to add dir path as input and output directory, you can change or add
 
 You can execute this
 ```
-python mergeEandMu.py -Y year -isWithST True/False -a AnalysisRange
+python mergeEandMu.py -Y year -a AnalysisRange
 ```
 
 For year, you can use 2017 or 2018
 
 For AnalysisRange, you can change it with:
 * Inclusive
-* pT200-350
-* pT250-500
-* pT500-2000
-* MET200-270
-* MET270-345
-* MET345-1000
+* PT-200-350
+* PT-250-500
+* PT-500-2000
+* MET-200-270
+* MET-270-345
+* MET-345-1000
 
 For example:
 ```
-python mergeEandMu.py -Y 2017 -isWithST False -a MET345-1000
+python mergeEandMu.py -Y 2017 -a MET345-1000
 ```
 
 
