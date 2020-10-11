@@ -421,6 +421,7 @@ def getXSuncertainties(Data_path, treeName, year_, ana, isEle, isUp):
     return [SFlist, UncList, UncInPercentageList, totalUnc, ttDataEfficiencyList, priorSF]
 
 
+
 ##########################################
 # Systematic Uncertainty from Luminosity #
 ##########################################
