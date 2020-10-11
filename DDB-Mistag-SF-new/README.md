@@ -87,9 +87,9 @@ You can execute this
 python mergeEandMu.py -Y year -a AnalysisRange
 ```
 
-For year, you can use 2017 or 2018
+For `year`, you can use 2017 or 2018
 
-For AnalysisRange, you can change it with:
+For `AnalysisRange`, you can change it with:
 * Inclusive
 * PT-200-350
 * PT-250-500
@@ -112,12 +112,12 @@ For 2017 data, if you want to use `monohbb.v06.00.01.2017_NCU` version, you can 
 
 To run this python script, you can follow this command
 ```
-python XSsysUnc.py -Y year -a analysis
+python XSsysUnc.py -Y year -a AnalysisRange
 ```
 
-You can use 2017 or 2018 for year
+You can use 2017 or 2018 for the `year`
 
-For analysis, you can change it to be:
+For the `AnalysisRange`, you can change it to be:
 * Inclusive
 * PT-200-350
 * PT-350-500
