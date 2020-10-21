@@ -121,7 +121,7 @@ For the `AnalysisRange`, you can change it to be:
 * Inclusive
 * PT-200-350
 * PT-350-500
-* PT-350-2000
+* PT-500-2000
 * MET-200-270
 * MET-270-345
 * MET-345-1000
