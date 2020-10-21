@@ -263,7 +263,7 @@ def mistagSFtopEMu(year_, ana_):
     unsubtractedDataMerge.SetMarkerSize(1.5)
     unsubtractedDataMerge.GetXaxis().SetLabelSize(0)
     unsubtractedDataMerge.GetXaxis().SetTitleSize(0)
-    unsubtractedDataMerge.GetXaxis().SetTitle("Double b score")
+    unsubtractedDataMerge.GetXaxis().SetTitle("DDB")
     unsubtractedDataMerge.GetYaxis().SetTitle("Events/Bin")
     leg1.AddEntry(unsubtractedDataMerge, "Data", "lep")
     unsubtractedDataMerge.Draw("e1")
@@ -276,6 +276,17 @@ def mistagSFtopEMu(year_, ana_):
     
     lt = TLatex()
     lt.DrawLatexNDC(0.23,0.85,"#scale[0.8]{CMS} #scale[0.65]{#bf{#it{Internal}}}")
+    if ana_ == "Inclusive":
+        lt.DrawLatexNDC(0.17,0.92,"#scale[0.7]{#bf{"+ana_+"}}")
+    if ana_ == "PT-200-350" or ana_ == "PT-350-500" or ana_ == "PT-500-2000":
+        words = ana_.split("-")
+        if words[2] == "2000":
+            lt.DrawLatexNDC(0.17,0.92,"#scale[0.7]{#bf{p_{T} "+words[1]+"-Inf GeV}}")
+        else:
+            lt.DrawLatexNDC(0.17,0.92,"#scale[0.7]{#bf{p_{T} "+words[1]+"-"+words[2]+" GeV}}")
+    else:
+        words = ana_.split("-")
+        lt.DrawLatexNDC(0.17,0.92,"#scale[0.7]{#bf{"+words[0]+" "+words[1]+"-"+words[2]+" GeV}}")
     lt.DrawLatexNDC(0.23,0.8,"#scale[0.7]{#bf{t#bar{t} CR (e+#mu)}}")
     lt.DrawLatexNDC(0.23,0.75,"#scale[0.5]{#bf{2-prong (bq) enriched}}")
     if year_ == 2017:
@@ -303,7 +314,7 @@ def mistagSFtopEMu(year_, ana_):
     ratio.GetYaxis().SetTitleSize(0.13)
     ratio.GetYaxis().SetNdivisions(405)
     ratio.GetYaxis().SetTitle("#frac{Data-Pred}{Pred}")
-    ratio.GetXaxis().SetTitle("Double b score")
+    ratio.GetXaxis().SetTitle("DDB")
     ratio.Draw("e1")
     
     c1.SaveAs(dir+"Merge_all.pdf")#
@@ -324,20 +335,20 @@ def mistagSFtopEMu(year_, ana_):
     failMCsubtractMerge.SetMaximum(ttmax)
     failMCsubtractMerge.SetFillColor(821)
     failMCsubtractMerge.SetLineColor(821)#922
-    failMCsubtractMerge.GetXaxis().SetTitle("Double b score")
+    failMCsubtractMerge.GetXaxis().SetTitle("DDB")
     failMCsubtractMerge.GetYaxis().SetTitle("Events/Bin")
     leg2.AddEntry(failMCsubtractMerge, "t#bar{t}", "f")
     
     passMCsubtractMerge.SetFillColor(622)
     passMCsubtractMerge.SetLineColor(622)
-    #passMCsubtractMerge.GetXaxis().SetTitle("Double b score")
+    #passMCsubtractMerge.GetXaxis().SetTitle("DDB")
     #passMCsubtractMerge.GetYaxis().SetTitle("Events/Bin")
     leg2.AddEntry(passMCsubtractMerge, "t#bar{t} mistag", "f")
     
     subtractedDataMerge.SetLineColor(1)
     subtractedDataMerge.SetMarkerStyle(20)
     subtractedDataMerge.SetMarkerSize(1.5)
-    #subtractedDataMerge.GetXaxis().SetTitle("Double b score")
+    #subtractedDataMerge.GetXaxis().SetTitle("DDB")
     #subtractedDataMerge.GetYaxis().SetTitle("Events/Bin")
     leg2.AddEntry(subtractedDataMerge, "Subtracted Data", "lep")
     
@@ -347,6 +358,17 @@ def mistagSFtopEMu(year_, ana_):
     leg2.Draw()
     
     lt2 = TLatex()
+    if ana_ == "Inclusive":
+        lt2.DrawLatexNDC(0.17,0.92,"#scale[0.7]{#bf{"+ana_+"}}")
+    if ana_ == "PT-200-350" or ana_ == "PT-350-500" or ana_ == "PT-500-2000":
+        words = ana_.split("-")
+        if words[2] == "2000":
+            lt2.DrawLatexNDC(0.17,0.92,"#scale[0.7]{#bf{p_{T} "+words[1]+"-Inf GeV}}")
+        else:
+            lt2.DrawLatexNDC(0.17,0.92,"#scale[0.7]{#bf{p_{T} "+words[1]+"-"+words[2]+" GeV}}")
+    else:
+        words = ana_.split("-")
+        lt2.DrawLatexNDC(0.17,0.92,"#scale[0.7]{#bf{"+words[0]+" "+words[1]+"-"+words[2]+" GeV}}")
     lt2.DrawLatexNDC(0.23,0.85,"#scale[0.8]{CMS} #scale[0.65]{#bf{#it{Internal}}}")
     lt2.DrawLatexNDC(0.23,0.8,"#scale[0.7]{#bf{t#bar{t} CR (e+#mu)}}")
     lt2.DrawLatexNDC(0.23,0.75,"#scale[0.5]{#bf{2-prong (bq) enriched}}")
@@ -427,6 +449,17 @@ def mistagSFtopEMu(year_, ana_):
     leg3.Draw()
     
     lt3 = TLatex()
+    if ana_ == "Inclusive":
+        lt3.DrawLatexNDC(0.17,0.92,"#scale[0.7]{#bf{"+ana_+"}}")
+    if ana_ == "PT-200-350" or ana_ == "PT-350-500" or ana_ == "PT-500-2000":
+        words = ana_.split("-")
+        if words[2] == "2000":
+            lt3.DrawLatexNDC(0.17,0.92,"#scale[0.7]{#bf{p_{T} "+words[1]+"-Inf GeV}}")
+        else:
+            lt3.DrawLatexNDC(0.17,0.92,"#scale[0.7]{#bf{p_{T} "+words[1]+"-"+words[2]+" GeV}}")
+    else:
+        words = ana_.split("-")
+        lt3.DrawLatexNDC(0.17,0.92,"#scale[0.7]{#bf{"+words[0]+" "+words[1]+"-"+words[2]+" GeV}}")
     lt3.DrawLatexNDC(0.19,0.855,"#scale[0.8]{CMS} #scale[0.65]{#bf{#it{Internal}}}")
     lt3.DrawLatexNDC(0.19,0.805,"#scale[0.7]{#bf{t#bar{t} CR (e+#mu)}}")
     lt3.DrawLatexNDC(0.19,0.755,"#scale[0.5]{#bf{2-prong (bq) enriched}}")

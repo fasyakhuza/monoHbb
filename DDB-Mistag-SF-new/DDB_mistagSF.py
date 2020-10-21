@@ -467,7 +467,7 @@ def withSingleTopAndInclusive(x, year_, isTope):
     
     h_TopMatchFinal.SetFillColor(821)
     h_TopMatchFinal.SetLineColor(821)#923
-    h_TopMatchFinal.GetXaxis().SetTitle("Double b score")
+    h_TopMatchFinal.GetXaxis().SetTitle("DDB")
     h_TopMatchFinal.GetXaxis().SetLabelSize(0)
     h_TopMatchFinal.GetYaxis().SetTitle("Events/Bin")
     h_TopMatchFinal.GetYaxis().SetTitleSize(0.05)
@@ -512,6 +512,7 @@ def withSingleTopAndInclusive(x, year_, isTope):
     leg.Draw()
     
     lt = TLatex()
+    lt.DrawLatexNDC(0.17,0.92,"#scale[0.7]{#bf{Inclusive}}")
     lt.DrawLatexNDC(0.24,0.85,"#scale[0.8]{CMS} #scale[0.65]{#bf{#it{Internal}}}")
     if isTope == "True":
         lt.DrawLatexNDC(0.24,0.8,"#scale[0.7]{#bf{t#bar{t} CR (e)}}")
@@ -542,7 +543,7 @@ def withSingleTopAndInclusive(x, year_, isTope):
     ratio.GetYaxis().SetTitleSize(0.13)
     ratio.GetYaxis().SetNdivisions(405)
     ratio.GetYaxis().SetTitle("#frac{Data-Pred}{Pred}")
-    ratio.GetXaxis().SetTitle("Double b score")
+    ratio.GetXaxis().SetTitle("DDB")
     ratio.Draw("e1")
     
     #full.cd()
@@ -614,7 +615,7 @@ def withSingleTopAndInclusive(x, year_, isTope):
     #h_ttFailed.Rebin(2)
     h_ttFailed.SetFillColor(821)
     h_ttFailed.SetLineColor(821)#922
-    h_ttFailed.GetXaxis().SetTitle("Double b score")
+    h_ttFailed.GetXaxis().SetTitle("DDB")
     h_ttFailed.GetYaxis().SetTitle("Events/Bin")
     h_ttFailed.SetMaximum(ttmax)
     leg2.AddEntry(h_ttFailed, "t#bar{t}", "f")
@@ -622,7 +623,7 @@ def withSingleTopAndInclusive(x, year_, isTope):
     #h_ttPassed.Rebin(2)
     h_ttPassed.SetFillColor(622)
     h_ttPassed.SetLineColor(622)
-    h_ttPassed.GetXaxis().SetTitle("Double b score")
+    h_ttPassed.GetXaxis().SetTitle("DDB")
     h_ttPassed.GetYaxis().SetTitle("Events/Bin")
     h_ttPassed.SetMaximum(ttmax)
     leg2.AddEntry(h_ttPassed, "t#bar{t} mistag ("+frac_Passed_text+"%)", "f")
@@ -631,7 +632,7 @@ def withSingleTopAndInclusive(x, year_, isTope):
     SubtractedData.SetLineColor(1)
     SubtractedData.SetMarkerStyle(20)
     SubtractedData.SetMarkerSize(1.5)
-    SubtractedData.GetXaxis().SetTitle("Double b score")
+    SubtractedData.GetXaxis().SetTitle("DDB")
     SubtractedData.GetYaxis().SetTitle("Events/Bin")
     leg2.AddEntry(SubtractedData, "Subtracted Data", "lep")
 
@@ -643,6 +644,7 @@ def withSingleTopAndInclusive(x, year_, isTope):
     leg2.Draw()
 
     lt2 = TLatex()
+    lt2.DrawLatexNDC(0.17,0.92,"#scale[0.7]{#bf{Inclusive}}")
     lt2.DrawLatexNDC(0.23,0.85,"#scale[0.8]{CMS} #scale[0.65]{#bf{#it{Internal}}}")
     if isTope == "True":
         lt2.DrawLatexNDC(0.24,0.8,"#scale[0.7]{#bf{t#bar{t} CR (e)}}")
@@ -751,6 +753,7 @@ def withSingleTopAndInclusive(x, year_, isTope):
     leg3.Draw()
 
     lt3 = TLatex()
+    lt3.DrawLatexNDC(0.17,0.92,"#scale[0.7]{#bf{Inclusive}}")
     lt3.DrawLatexNDC(0.19,0.855,"#scale[0.8]{CMS} #scale[0.65]{#bf{#it{Internal}}}")
     if isTope == "True":
         lt3.DrawLatexNDC(0.24,0.8,"#scale[0.7]{#bf{t#bar{t} CR (e)}}")
@@ -1315,7 +1318,7 @@ def withSingleTopAndMETbins(lowerMET, upperMET, year_, isTope):
 
     h_TopMatchFinal.SetFillColor(821)
     h_TopMatchFinal.SetLineColor(821)#923
-    h_TopMatchFinal.GetXaxis().SetTitle("Double b score")
+    h_TopMatchFinal.GetXaxis().SetTitle("DDB")
     h_TopMatchFinal.GetXaxis().SetLabelSize(0)
     h_TopMatchFinal.GetYaxis().SetTitle("Events/Bin")
     h_TopMatchFinal.GetYaxis().SetTitleSize(0.05)
@@ -1360,6 +1363,7 @@ def withSingleTopAndMETbins(lowerMET, upperMET, year_, isTope):
     leg.Draw()
 
     lt = TLatex()
+    lt.DrawLatexNDC(0.17,0.92,"#scale[0.7]{#bf{MET "+str(lowerMET)+"-"+str(upperMET)+" GeV}}")
     lt.DrawLatexNDC(0.24,0.85,"#scale[0.8]{CMS} #scale[0.65]{#bf{#it{Internal}}}")
     if isTope == "True":
         lt.DrawLatexNDC(0.24,0.8,"#scale[0.7]{#bf{t#bar{t} CR (e)}}")
@@ -1390,7 +1394,7 @@ def withSingleTopAndMETbins(lowerMET, upperMET, year_, isTope):
     ratio.GetYaxis().SetTitleSize(0.13)
     ratio.GetYaxis().SetNdivisions(405)
     ratio.GetYaxis().SetTitle("#frac{Data-Pred}{Pred}")
-    ratio.GetXaxis().SetTitle("Double b score")
+    ratio.GetXaxis().SetTitle("DDB")
     ratio.Draw("e1")
 
     #full.cd()
@@ -1462,7 +1466,7 @@ def withSingleTopAndMETbins(lowerMET, upperMET, year_, isTope):
     #h_ttFailed.Rebin(2)
     h_ttFailed.SetFillColor(821)
     h_ttFailed.SetLineColor(821)#922
-    h_ttFailed.GetXaxis().SetTitle("Double b score")
+    h_ttFailed.GetXaxis().SetTitle("DDB")
     h_ttFailed.GetYaxis().SetTitle("Events/Bin")
     h_ttFailed.SetMaximum(ttmax)
     leg2.AddEntry(h_ttFailed, "t#bar{t}", "f")
@@ -1470,7 +1474,7 @@ def withSingleTopAndMETbins(lowerMET, upperMET, year_, isTope):
     #h_ttPassed.Rebin(2)
     h_ttPassed.SetFillColor(622)
     h_ttPassed.SetLineColor(622)
-    h_ttPassed.GetXaxis().SetTitle("Double b score")
+    h_ttPassed.GetXaxis().SetTitle("DDB")
     h_ttPassed.GetYaxis().SetTitle("Events/Bin")
     h_ttPassed.SetMaximum(ttmax)
     leg2.AddEntry(h_ttPassed, "t#bar{t} mistag ("+frac_Passed_text+"%)", "f")
@@ -1479,7 +1483,7 @@ def withSingleTopAndMETbins(lowerMET, upperMET, year_, isTope):
     SubtractedData.SetLineColor(1)
     SubtractedData.SetMarkerStyle(20)
     SubtractedData.SetMarkerSize(1.5)
-    SubtractedData.GetXaxis().SetTitle("Double b score")
+    SubtractedData.GetXaxis().SetTitle("DDB")
     SubtractedData.GetYaxis().SetTitle("Events/Bin")
     leg2.AddEntry(SubtractedData, "Subtracted Data", "lep")
     
@@ -1491,6 +1495,7 @@ def withSingleTopAndMETbins(lowerMET, upperMET, year_, isTope):
     leg2.Draw()
     
     lt2 = TLatex()
+    lt2.DrawLatexNDC(0.17,0.92,"#scale[0.7]{#bf{MET "+str(lowerMET)+"-"+str(upperMET)+" GeV}}")
     lt2.DrawLatexNDC(0.23,0.85,"#scale[0.8]{CMS} #scale[0.65]{#bf{#it{Internal}}}")
     if isTope == "True":
         lt2.DrawLatexNDC(0.24,0.8,"#scale[0.7]{#bf{t#bar{t} CR (e)}}")
@@ -1596,6 +1601,7 @@ def withSingleTopAndMETbins(lowerMET, upperMET, year_, isTope):
     leg3.Draw()
     
     lt3 = TLatex()
+    lt3.DrawLatexNDC(0.17,0.92,"#scale[0.7]{#bf{MET "+str(lowerMET)+"-"+str(upperMET)+" GeV}}")
     lt3.DrawLatexNDC(0.19,0.855,"#scale[0.8]{CMS} #scale[0.65]{#bf{#it{Internal}}}")
     if isTope == "True":
         lt3.DrawLatexNDC(0.24,0.8,"#scale[0.7]{#bf{t#bar{t} CR (e)}}")
@@ -2159,7 +2165,7 @@ def withSingleTopAndpTbins(lowerpT, upperpT, year_, isTope):
     
     h_TopMatchFinal.SetFillColor(821)
     h_TopMatchFinal.SetLineColor(821)#923
-    h_TopMatchFinal.GetXaxis().SetTitle("Double b score")
+    h_TopMatchFinal.GetXaxis().SetTitle("DDB")
     h_TopMatchFinal.GetXaxis().SetLabelSize(0)
     h_TopMatchFinal.GetYaxis().SetTitle("Events/Bin")
     h_TopMatchFinal.GetYaxis().SetTitleSize(0.05)
@@ -2204,6 +2210,10 @@ def withSingleTopAndpTbins(lowerpT, upperpT, year_, isTope):
     leg.Draw()
     
     lt = TLatex()
+    if upperpT == 2000:
+        lt.DrawLatexNDC(0.17,0.92,"#scale[0.7]{#bf{p_{T} "+str(lowerpT)+"-Inf GeV}}")
+    else:
+        lt.DrawLatexNDC(0.17,0.92,"#scale[0.7]{#bf{p_{T} "+str(lowerpT)+"-"+str(upperpT)+" GeV}}")
     lt.DrawLatexNDC(0.24,0.85,"#scale[0.8]{CMS} #scale[0.65]{#bf{#it{Internal}}}")
     if isTope == "True":
         lt.DrawLatexNDC(0.24,0.8,"#scale[0.7]{#bf{t#bar{t} CR (e)}}")
@@ -2234,7 +2244,7 @@ def withSingleTopAndpTbins(lowerpT, upperpT, year_, isTope):
     ratio.GetYaxis().SetTitleSize(0.13)
     ratio.GetYaxis().SetNdivisions(405)
     ratio.GetYaxis().SetTitle("#frac{Data-Pred}{Pred}")
-    ratio.GetXaxis().SetTitle("Double b score")
+    ratio.GetXaxis().SetTitle("DDB")
     ratio.Draw("e1")
     
     #full.cd()
@@ -2306,7 +2316,7 @@ def withSingleTopAndpTbins(lowerpT, upperpT, year_, isTope):
     #h_ttFailed.Rebin(2)
     h_ttFailed.SetFillColor(821)
     h_ttFailed.SetLineColor(821)#922
-    h_ttFailed.GetXaxis().SetTitle("Double b score")
+    h_ttFailed.GetXaxis().SetTitle("DDB")
     h_ttFailed.GetYaxis().SetTitle("Events/Bin")
     h_ttFailed.SetMaximum(ttmax)
     leg2.AddEntry(h_ttFailed, "t#bar{t}", "f")
@@ -2314,7 +2324,7 @@ def withSingleTopAndpTbins(lowerpT, upperpT, year_, isTope):
     #h_ttPassed.Rebin(2)
     h_ttPassed.SetFillColor(622)
     h_ttPassed.SetLineColor(622)
-    h_ttPassed.GetXaxis().SetTitle("Double b score")
+    h_ttPassed.GetXaxis().SetTitle("DDB")
     h_ttPassed.GetYaxis().SetTitle("Events/Bin")
     h_ttPassed.SetMaximum(ttmax)
     leg2.AddEntry(h_ttPassed, "t#bar{t} mistag ("+frac_Passed_text+"%)", "f")
@@ -2323,7 +2333,7 @@ def withSingleTopAndpTbins(lowerpT, upperpT, year_, isTope):
     SubtractedData.SetLineColor(1)
     SubtractedData.SetMarkerStyle(20)
     SubtractedData.SetMarkerSize(1.5)
-    SubtractedData.GetXaxis().SetTitle("Double b score")
+    SubtractedData.GetXaxis().SetTitle("DDB")
     SubtractedData.GetYaxis().SetTitle("Events/Bin")
     leg2.AddEntry(SubtractedData, "Subtracted Data", "lep")
     
@@ -2335,6 +2345,10 @@ def withSingleTopAndpTbins(lowerpT, upperpT, year_, isTope):
     leg2.Draw()
     
     lt2 = TLatex()
+    if upperpT == 2000:
+        lt2.DrawLatexNDC(0.17,0.92,"#scale[0.7]{#bf{p_{T} "+str(lowerpT)+"-Inf GeV}}")
+    else:
+        lt2.DrawLatexNDC(0.17,0.92,"#scale[0.7]{#bf{p_{T} "+str(lowerpT)+"-"+str(upperpT)+" GeV}}")
     lt2.DrawLatexNDC(0.23,0.85,"#scale[0.8]{CMS} #scale[0.65]{#bf{#it{Internal}}}")
     if isTope == "True":
         lt2.DrawLatexNDC(0.24,0.8,"#scale[0.7]{#bf{t#bar{t} CR (e)}}")
@@ -2440,6 +2454,10 @@ def withSingleTopAndpTbins(lowerpT, upperpT, year_, isTope):
     leg3.Draw()
     
     lt3 = TLatex()
+    if upperpT == 2000:
+        lt3.DrawLatexNDC(0.17,0.92,"#scale[0.7]{#bf{p_{T} "+str(lowerpT)+"-Inf GeV}}")
+    else:
+        lt3.DrawLatexNDC(0.17,0.92,"#scale[0.7]{#bf{p_{T} "+str(lowerpT)+"-"+str(upperpT)+" GeV}}")
     lt3.DrawLatexNDC(0.19,0.855,"#scale[0.8]{CMS} #scale[0.65]{#bf{#it{Internal}}}")
     if isTope == "True":
         lt3.DrawLatexNDC(0.24,0.8,"#scale[0.7]{#bf{t#bar{t} CR (e)}}")
