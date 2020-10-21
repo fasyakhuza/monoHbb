@@ -67,11 +67,10 @@ def yearandversion(year_):
     if year_ == 2017:
         L = 41500.0#/pb ; integrated luminosity
         version = "monohbb.v06.00.05.2017_NCU/"
-        inputdirpath = "/afs/cern.ch/work/f/fkhuzaim/DDB_MistagSF/"+version+"combined/"
     if year_ == 2018:
         L = 58827.0#/pb ; integrated luminosity
         version = "monohbb.v06.00.05.2018_NCU/"
-        inputdirpath = "/afs/cern.ch/work/f/fkhuzaim/DDB_MistagSF/"+version+"combined/"
+    inputdirpath = "/afs/cern.ch/work/f/fkhuzaim/DDB_MistagSF/"+version+"combined/"
     outdir ="/afs/cern.ch/work/f/fkhuzaim/DDB_MistagSF/new_output/"+version
     return [L, inputdirpath, outdir]
 
