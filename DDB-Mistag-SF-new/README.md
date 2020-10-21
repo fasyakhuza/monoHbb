@@ -25,7 +25,7 @@ The `DDB_mistagSF.py` can be used for plotting DDB mistag scale factor of 2017 a
 
 Change the `inputdirpath` at L73 to be your inputdirpath.
 
-Change the `outdir` at L75 to be your output directory.
+Change the `outdir` at L74 to be your output directory.
 
 Note: Don't forget to always do `cmsenv` whenever you want to run the python script
 
