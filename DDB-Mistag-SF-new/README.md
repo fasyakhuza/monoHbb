@@ -42,7 +42,7 @@ There are 3 arguments you have to use for running this python script.
 3. The range and with/without single top process
 ```
 -WI Inclusive [with single top for inclusive analysis]
--WPT range [This is if you want to analyze in pT bins variation. You can change the "range" to be PT-200-350, PT-350-500, and PT-350-2000.]
+-WPT range [This is if you want to analyze in pT bins variation. You can change the "range" to be PT-200-350, PT-350-500, and PT-500-2000.]
 -WMET range [This is if you want to analyze in several MET variation. You can change the "range" to be MET-200-270, MET-270-345, and MET-345-1000.]
 ```
 
